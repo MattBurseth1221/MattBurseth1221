@@ -1,0 +1,16 @@
+#intro {
+	z-index: 1;
+	text-align: center;
+	background-color: lightblue;
+}
+
+#intro-list {
+	background-color: lightred;
+	z-index: 3;
+}
+
+#intro-info {
+	background-color: lightgray;
+	font-family: Times, serif, Arial;
+	text-align: center;
+}
