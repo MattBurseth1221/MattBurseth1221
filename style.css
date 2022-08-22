@@ -1,8 +1,8 @@
 #name-intro {
 	text-align: center;
-	font-family: Times;
+	font-family: Arial;
 	width: 300px;
-  	border: 15px solid blue;
+  	border: 15px solid #36b3e5;
   	padding: 10px;
  	margin: 20px;
 }
@@ -19,8 +19,8 @@
 }
 
 .intro-div {
-	width: 300px;
-	border: 10px red;
+	width: 1000px;
+	border: 10px solid lightblue;
 	padding: 50px;
 	margin: 20px;
 }
