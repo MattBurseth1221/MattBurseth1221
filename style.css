@@ -1,3 +1,7 @@
+html {
+	background-image: linear-gradient(aqua, white);	
+}
+
 #name-intro {
 	margin: auto;
 	width: 300px;
