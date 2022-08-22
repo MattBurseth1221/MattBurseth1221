@@ -1,10 +1,13 @@
 #name-intro {
-	text-align: center;
-	font-family: Arial;
+	margin: auto;
 	width: 300px;
   	border: 15px solid #36b3e5;
   	padding: 10px;
- 	margin: 20px;
+}
+
+#name-intro h1 {
+	font-family: Arial;
+	text-align: center;
 }
 
 #intro {
