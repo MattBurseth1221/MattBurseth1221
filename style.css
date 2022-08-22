@@ -1,6 +1,14 @@
+#name-intro {
+	font-family: Times;
+	width: 300px;
+  	border: 15px green;
+  	padding: 50px;
+ 	margin: 20px;
+}
+
 #intro {
 	z-index: 1;
-	text-align: center;
+	text-align: left;
 	background-color: lightblue;
 }
 
