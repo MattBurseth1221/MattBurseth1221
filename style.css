@@ -18,6 +18,13 @@
 	z-index: 3;
 }
 
+.intro-div {
+	width: 300px;
+	border: 10px red;
+	padding: 50px;
+	margin: 20px;
+}
+
 .intro-paragraph {
 	background-color: lightgray;
 	font-family: Times, serif, Arial;
