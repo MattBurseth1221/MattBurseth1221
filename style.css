@@ -2,6 +2,10 @@ html {
 	background-image: linear-gradient(white, blue);	
 }
 
+body {
+	background-color: transparent;	
+}
+
 #name-intro {
 	margin: auto;
 	width: 300px;
