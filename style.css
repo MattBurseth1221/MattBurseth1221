@@ -9,6 +9,11 @@ html {
   	padding: 10px;
 }
 
+#contact-info img {
+	width: 100%;
+	height: auto;
+}
+
 #name-intro h1 {
 	font-family: Arial;
 	text-align: center;
