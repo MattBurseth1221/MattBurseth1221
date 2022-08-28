@@ -11,19 +11,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
 </head>
-<body>
+<body onload="updateAge()">
 	<div id="name-intro">
 		<h1>Matt Burseth</h1>
 		
-		<p id="contact-info"><img src="phone.svg"/>1-(224)-388-5554 mattburseth1@gmail.com</p>
+		<p id="contact-info"><img src="smartphone.svg"/>1-(224)-388-5554 <img src="mail.svg"/>mattburseth1@gmail.com</p>
 	</div>
 	<main>
 	<div id="intro">
 		<h2>A little about me:</h2>
 		<div id="intro-list">
 		<ul>
-			<li>I am <span style="color:red">21</span> years old.</li>
-			<li>I enjoy programming and listening to music.</li>
+			<li>I am <span id="age-tag" style="color:red">If something went wrong with the JavaScript, you are seeing this message.</span> years old.</li>
+			<li>This is a list test.</li>
 			<li>I need to get better at HTML.</li>
 		</ul>
 		</div>
@@ -33,6 +33,10 @@
 		This website is something I am trying to create both for myself and to hopefully showcase projects to come 
 		for others. 
 		</p>
+	</div>
+
+	<div id="js-test">
+		<input type="button" onclick="updateAge()" value="Print Age">
 	</div>
 	</main>
 </body>
