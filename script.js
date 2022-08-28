@@ -17,5 +17,5 @@ function updateAge() {
 }
 
 function printAge()  {
-	alert("Dave is " + age + " years old.");
+	alert("Dave is " + document.getElementById("age-tag").textContent + " years old.");
 }
