@@ -1,8 +1,22 @@
 html {
+	height: 100%;
+	width: 100%;
 	background-image: linear-gradient(white, blue);	
 }
 
+main {
+	border-radius: 10px;
+	border: 5px solid black;
+	padding: 30px;
+	margin: auto;
+}
+
 body {
+	padding: 30px;
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-color: transparent;	
 }
 
@@ -14,8 +28,8 @@ body {
 }
 
 #contact-info img {
-	width: 100%;
-	height: auto;
+	width: 20px;
+	height: 20px;
 }
 
 #name-intro h1 {
@@ -24,7 +38,13 @@ body {
 }
 
 #intro {
-	z-index: 1;
+	align-content: left;
+	width: 900px;
+	height: auto;
+	border-radius: 20px;
+	margin: 20px;
+	padding: 20px;
+	border: 10px solid black;
 	text-align: left;
 	background-color: lightblue;
 }
@@ -42,7 +62,7 @@ body {
 }
 
 .intro-paragraph {
-	background-color: lightgray;
+	//background-color: lightgray;
 	font-family: Times, serif, Arial;
 	text-align: center;
 }
