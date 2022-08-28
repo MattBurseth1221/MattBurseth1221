@@ -14,5 +14,5 @@ function updateAge() {
 	}
 
 	document.getElementById("age-tag").innerHTML = age;
-	//alert("i am " + age + " years old.");
+	alert("Dave is " + age + " years old.");
 }
