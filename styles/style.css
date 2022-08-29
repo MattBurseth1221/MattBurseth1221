@@ -66,3 +66,28 @@ body {
 	font-family: Times, serif, Arial;
 	text-align: center;
 }
+
+.nav-button {
+	box-shadow:inset 0px 1px 0px 0px #9ebff0;
+	background:linear-gradient(to right, #83a4d4 5%, #0072b1 100%);
+	background-color:#78c290;
+	border-radius:6px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:14px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.nav-button:hover {
+	background:linear-gradient(to right, #0072b1 5%, #83a4d4 100%);
+	background-color:#476e9e;
+}
+.nav-button:active {
+	position:relative;
+	top:1px;
+}
