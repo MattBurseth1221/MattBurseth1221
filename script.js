@@ -19,3 +19,15 @@ function updateAge() {
 function printAge()  {
 	alert("Dave is " + document.getElementById("age-tag").textContent + " years old.");
 }
+
+function newTab() {
+	window.open("https://www.linkedin.com/in/matt-burseth-profile/", "_blank");
+}
+
+function changePage() {
+	window.location.replace("about-me.html");
+}
+
+function changeToHomePage() {
+	window.location.replace("index.html");
+}
