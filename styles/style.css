@@ -21,6 +21,7 @@ body {
 }
 
 #name-intro {
+	font-family: Optima;
 	margin: auto;
 	width: 300px;
   	border: 15px solid #36b3e5;
@@ -38,6 +39,7 @@ body {
 }
 
 #intro {
+	font-family: Optima;
 	align-content: left;
 	width: 900px;
 	height: auto;
