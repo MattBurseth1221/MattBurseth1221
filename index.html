@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
-<meta http-equiv='pragma' content='no-cache'>
-	
 <head>
-	<meta charset="UTF-8">
-	<title>Matt Burseth's Website</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<script type="text/javascript" src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Modern Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
 </head>
-<body onload="updateAge()">
-	<div id="name-intro">
-		<h1>Matt Burseth</h1>
-		
-		<p id="contact-info"><img src="styles/smartphone.svg" width="20" height="20"/>  1-(224)-388-5554 <br><img src="styles/mail.svg" width="20" height="20"/>  mattburseth1@gmail.com</p>
-	</div>
-	<main>
-	<div id="intro">
-		<h2>A little about me:</h2>
-		<div id="intro-list">
-		<ul>
-			<li>I am <span id="age-tag" style="color:red">If something went wrong with the JavaScript, you are seeing this message.</span> years old.</li>
-			<li>This is a list test.</li>
-			<li>I need to get better at HTML.</li>
-		</ul>
-		</div>
-	</div>
-	<div class="intro-div">
-		<p class="intro-paragraph">My name is Matthew Burseth and I am currently studying <span style="color:green">Computer Science</span> at the <span style="color:purple">University of Wisconsin - Whitewater</span>.
-		This website is something I am creating in order to display my programming portfolio and share my contact info as needed.
-		</p>
-	</div>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h1>Welcome to My Modern Website</h1>
+            <p>Testing work with API's.</p>
+            <a href="#" class="button">Learn More</a>
+        </section>
+        
+        <section id="tokenContainer">
+            <h2>Do we have a Spotify token?</h2>
 
-	<div id="js-test">
-		<input type="button" class="nav-button" onclick="newTab()" value="LinkedIn">
-		<input type="button" class="nav-button" onclick="changePage()" value="About Me">
-	</div>
-	
-	</main>
+            <div id="token-container-div">
+                <p id="hasToken">This should change if we have a token.</p>
+
+                <input type="button" onclick="success()" value="Refresh">
+                <button id="show-top-songs" onclick="getRandomWord()">Display</button>
+
+                <p id="random-word">Do we have a random word?</p>
+            </div>
+        </section>
+
+        <div id="profile-info">
+            <p id="profile-name">Profile Name: <span id = "profile-name-span" class="profile-info">No info yet...</span></p>
+            <p id="profile-country">Country: <span id = "profile-country-span" class="profile-info">No info yet...</span></p>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Modern Website</p>
+    </footer>
 </body>
 </html>
