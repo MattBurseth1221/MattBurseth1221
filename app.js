@@ -1,6 +1,6 @@
 // Spotify API credentials
 const CLIENT_ID = 'b7a28fe4fa8e4a13846d6dd5579fd5f9';
-const REDIRECT_URI = 'http://127.0.0.1:5500/index.html';
+const REDIRECT_URI = 'https://mattburseth1221.github.io/index.html';
 const SCOPES = ['user-read-private', 'user-read-email', 'user-top-read'];
 
 const WORDNIK_API_KEY = 'vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo';
