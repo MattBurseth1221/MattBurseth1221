@@ -1,95 +1,61 @@
-html {
-	height: 100%;
-	width: 100%;	
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
 }
 
 main {
-	border-radius: 10px;
-	border: 5px solid black;
-	padding: 30px;
-	margin: auto;
+    padding: 40px;
 }
 
-body {
-	padding: 30px;
-	height: 100%;
-	margin: 0;
-	background-image: linear-gradient(white, blue);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-color: transparent;	
+section {
+    margin-bottom: 40px;
 }
 
-#name-intro {
-	font-family: Optima;
-	margin: auto;
-	width: 300px;
-  	border: 15px solid #36b3e5;
-  	padding: 10px;
+h1, h2 {
+    font-weight: normal;
+    margin-bottom: 10px;
 }
 
-#contact-info img {
-	width: 20px;
-	height: 20px;
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
 }
 
-#name-intro h1 {
-	font-family: Arial;
-	text-align: center;
+.button:hover {
+    background-color: #666;
 }
 
-#intro {
-	font-family: Optima;
-	align-content: left;
-	width: 900px;
-	height: auto;
-	border-radius: 20px;
-	margin: 20px;
-	padding: 20px;
-	border: 10px solid black;
-	text-align: left;
-	background-color: lightblue;
-}
-
-#intro-list {
-	background-color: lightred;
-	z-index: 3;
-}
-
-.intro-div {
-	width: 1000px;
-	border: 10px solid lightblue;
-	padding: 50px;
-	margin: 20px;
-}
-
-.intro-paragraph {
-	//background-color: lightgray;
-	font-family: Times, serif, Arial;
-	text-align: center;
-}
-
-.nav-button {
-	box-shadow:inset 0px 1px 0px 0px #9ebff0;
-	background:linear-gradient(to right, #83a4d4 5%, #0072b1 100%);
-	background-color:#78c290;
-	border-radius:6px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:14px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
-}
-.nav-button:hover {
-	background:linear-gradient(to right, #0072b1 5%, #83a4d4 100%);
-	background-color:#476e9e;
-}
-.nav-button:active {
-	position:relative;
-	top:1px;
+#token-container-div {
+    border: 1px solid black;
+    margin-right: 20%;
 }
