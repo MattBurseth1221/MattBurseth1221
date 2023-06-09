@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
-<meta http-equiv='pragma' content='no-cache'>
-	
 <head>
-	<meta charset="UTF-8">
-	<title>Matt Burseth's Website</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<script type="text/javascript" src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-	<h1>About me page</h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h3>Display your top 5 songs below</h3>
+    <button id="show-top-songs" onclick="getCategories()">Display</button>
+  </main>
 </body>
-<main>
-	<input type="button" class="nav-button" value="Back to Home" onclick="changeToHomePage()">
-</main>	
+</html>
