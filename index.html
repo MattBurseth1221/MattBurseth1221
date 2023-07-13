@@ -4,32 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="app.js" defer></script>
+    <title>Matt's Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
+            <ul class="menu-buttons">
+                <li><a href="#">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h3>Contact Me!</h3>
+        <section>
+            <h1>Welcome to My Website!</h1>
+            <p>Testing work with API's.</p>
+        </section>
 
-        <div id="contact-information">
-            <div id="email-address">Email: <a href="mailto: mattburseth1@gmail.com">Matt Burseth</a></div>
-            <div id="phone-number">(224)-388-5554</div>
-            <div id="city-state">Chicago, IL</div>
+        <section id="tokenContainer">
+            <p id="hasToken">This should change if we have a token.</p>
+
+            <div id="button-container">
+                <div id="display-buttons">
+                    <input type="button" class="display-button" onclick="success()" value="Refresh">
+                    <button id="show-top-songs" class="display-button" onclick="showTopSongs()">Display Top
+                        Songs</button>
+                    <input type="text" maxLength="2w" title="Number of Songs" id="number-of-display-songs"
+                        label="How many songs?">
+                </div>
+            </div>
+        </section>
+
+        <div id="profile-info">
+            <p id="profile-name">Profile Name: <span id="profile-name-span" class="profile-info">No info yet...</span>
+            </p>
+            <p id="profile-country">Country: <span id="profile-country-span" class="profile-info">No info yet...</span>
+            </p>
         </div>
+
+        <div id="top-songs">
+            <p id="top-songs-API-return">Top Songs: <span id='top-songs-replace'>No info yet...</span></p>
+
+            <!-- <audio controls>
+                <source src="https://p.scdn.co/mp3-preview/c85bc2fe71a4e2e002376c04b771cbb6be6438e6?cid=b7a28fe4fa8e4a13846d6dd5579fd5f9" />
+            </audio> -->
+        </div>
+
     </main>
+
+    <footer>
+        <p>&copy; 2023 My Modern Website</p>
+    </footer>
 </body>
 
 </html>
