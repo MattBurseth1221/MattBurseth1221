@@ -1,4 +1,5 @@
 body {
+    justify-content: center;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -21,6 +22,14 @@ nav ul {
 nav li {
     display: inline-block;
     margin-right: 20px;
+    border-radius: 10px;
+    transition: padding 0.75s, background-color 1.5s, border-radius;
+}
+
+nav li:hover {
+    padding: 10px;
+    background-color: #666;
+    border-radius: 10px;
 }
 
 nav a {
@@ -36,7 +45,8 @@ section {
     margin-bottom: 40px;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-weight: normal;
     margin-bottom: 10px;
 }
@@ -55,7 +65,60 @@ h1, h2 {
     background-color: #666;
 }
 
-#token-container-div {
+#button-container {
     border: 1px solid black;
-    margin-right: 20%;
+    margin-right: 50%;
+}
+
+.display-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding-left: 10px;
+}
+
+.display-button:hover {
+    border: 1 px solid black;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+#display-buttons {
+    border: 1px solid black;
+    margin-right: 50%;
+}
+
+footer {
+    padding: 40px;
+}
+
+#menu-buttons:hover {
+    background-color: red;
+}
+
+#about-me-div {
+    border: 1px solid black;
+    width: 500px;
+}
+
+#about-me-images {
+    position: absolute;
+    right: 30px;
+    top: 200;
+}
+
+#test-list-section {
+    text-align: justify;
+    background-color: lightgray;
+    border-radius: 20px;
+    border: solid 1px darkgray;
+    width: 400px;
+}
+
+#number-of-display-songs {
+    display: block;
+    margin: 0 auto;
 }
