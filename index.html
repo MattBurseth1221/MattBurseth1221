@@ -1,53 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Modern Website</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script type="text/javascript" src="app.js"></script>
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="app.js" defer></script>
 </head>
+
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
-        <section>
-            <h1>Welcome to My Modern Website</h1>
-            <p>Testing work with API's.</p>
-            <a href="#" class="button">Learn More</a>
-        </section>
-        
-        <section id="tokenContainer">
-            <h2>Do we have a Spotify token?</h2>
+        <h3>Contact Me!</h3>
 
-            <div id="token-container-div">
-                <p id="hasToken">This should change if we have a token.</p>
-
-                <input type="button" onclick="success()" value="Refresh">
-                <button id="show-top-songs" onclick="getRandomWord()">Display</button>
-
-                <p id="random-word">Do we have a random word?</p>
-            </div>
-        </section>
-
-        <div id="profile-info">
-            <p id="profile-name">Profile Name: <span id = "profile-name-span" class="profile-info">No info yet...</span></p>
-            <p id="profile-country">Country: <span id = "profile-country-span" class="profile-info">No info yet...</span></p>
+        <div id="contact-information">
+            <div id="email-address">Email: <a href="mailto: mattburseth1@gmail.com">Matt Burseth</a></div>
+            <div id="phone-number">(224)-388-5554</div>
+            <div id="city-state">Chicago, IL</div>
         </div>
-        
     </main>
-    
-    <footer>
-        <p>&copy; 2023 My Modern Website</p>
-    </footer>
 </body>
+
 </html>
