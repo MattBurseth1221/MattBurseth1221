@@ -71,9 +71,20 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+@font-face {
+    font-family: 'Raleway';
+    src: url('\styles\Raleway\static\Raleway-Black.ttf') format('truetype');
+}
+
+#main-body-div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
 body {
     justify-content: center;
-    font-family: Arial, sans-serif;
+    font-family: inherit;
     font-size: 16px;
     line-height: 1.5;
     margin: 0;
@@ -84,6 +95,11 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+}
+
+p {
+    margin: auto;
+    width: 50%;
 }
 
 nav ul {
@@ -115,7 +131,8 @@ main {
 }
 
 section {
-    margin-bottom: 40px;
+    margin: auto;
+    width: 50%;
 }
 
 h1,
@@ -140,11 +157,12 @@ h2 {
 
 #button-container {
     border: 1px solid black;
-    margin-right: 50%;
+    margin: auto;
+    width: 50%;
 }
 
 .display-button {
-    background-color: transparent;
+    background-color: #e4e4e4;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
@@ -161,12 +179,17 @@ h2 {
 
 #display-buttons {
     border: 1px solid black;
-    margin-right: 50%;
+    margin: auto;
+    width: 50%;
+}
+
+#profile-name {
+    margin: auto;
+    width: 50%;
 }
 
 footer {
     position: absolute;
-    height: 100%;
     padding: 40px;
 }
 
@@ -196,4 +219,11 @@ footer {
 #number-of-display-songs {
     display: block;
     margin: 0 auto;
+}
+
+#hasToken::before {
+    width: 45px;
+    height: 45px;
+    display: block;
+    background-color: rgb(194, 126, 126);
 }
