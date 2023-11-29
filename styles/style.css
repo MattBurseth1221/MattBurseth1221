@@ -76,6 +76,13 @@ textarea:not([rows]) {
     src: url('\styles\Raleway\static\Raleway-Black.ttf') format('truetype');
 }
 
+.center {
+    /* margin: auto; */
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
 #main-body-div {
     margin: auto;
     width: 50%;
@@ -100,6 +107,12 @@ header {
 p {
     margin: auto;
     width: 50%;
+}
+
+footer {
+    margin: auto;
+    width: 100%;
+
 }
 
 nav ul {
@@ -155,32 +168,20 @@ h2 {
     background-color: #666;
 }
 
-#button-container {
-    border: 1px solid black;
-    margin: auto;
-    width: 50%;
-}
-
 .display-button {
+    display: flex;
     background-color: #e4e4e4;
-    background-repeat: no-repeat;
-    border: none;
+    border: solid green 1px;
     cursor: pointer;
     overflow: hidden;
-    outline: none;
-    padding-left: 10px;
+    margin: auto;
+    width: 100px;
 }
 
 .display-button:hover {
     border: 1 px solid black;
     background-color: lightgray;
     border-radius: 5px;
-}
-
-#display-buttons {
-    border: 1px solid black;
-    margin: auto;
-    width: 50%;
 }
 
 #profile-name {
@@ -219,6 +220,11 @@ footer {
 #number-of-display-songs {
     display: block;
     margin: 0 auto;
+    width: 50%;
+} 
+
+#number-of-display-songs::after {
+    
 }
 
 #hasToken::before {

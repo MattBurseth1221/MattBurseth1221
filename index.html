@@ -23,42 +23,23 @@
     <main>
       <div id="main-body-div">
         <section>
-          <h1>Welcome to My Website!</h1>
-          <p>Testing work with API's.</p>
+          <h1 class="center" style="width: 75%">Welcome to My Website!</h1>
+          <p style="margin-bottom: 45px">Testing work with API's.</p>
         </section>
 
-        <section id="tokenContainer">
-          <span id="successSpan"
-            >lol
-            <p id="hasToken">This should change if we have a token.</p></span
-          >
+        <div id="tokenContainer">
+          <!-- <span id="successSpan"
+            ><p id="hasToken">This should change if we have a token.</p></span
+          > -->
 
-          <div id="button-container">
-            <div id="display-buttons">
-              <input
-                type="button"
-                class="display-button"
-                onclick="success()"
-                value="Refresh"
-              />
-              <button
-                type="button"
-                id="show-top-songs"
-                class="display-button"
-                onclick="showTopSongs()"
-              >
-                Display Top Songs
-              </button>
-              <input
-                type="text"
-                maxlength="2w"
-                title="Number of Songs"
-                id="number-of-display-songs"
-                label="How many songs?"
-              />
-            </div>
-          </div>
-        </section>
+          <input
+            type="text"
+            placeholder="&#128270"
+            title="Number of Songs"
+            id="number-of-display-songs"
+            label="How many songs?"
+          />
+        </div>
 
         <div id="profile-info">
           <p id="profile-name">
@@ -76,6 +57,14 @@
         </div>
 
         <div id="top-songs">
+          <button
+            type="button"
+            id="show-top-songs"
+            class="display-button"
+            onclick="showTopSongs()"
+          >
+            Display Top Songs
+          </button>
           <p id="top-songs-API-return">
             Top Songs: <span id="top-songs-replace">No info yet...</span>
           </p>
@@ -88,7 +77,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2023 My Modern Website</p>
+      <p style="text-align: center">&copy; 2023 My Modern Website</p>
     </footer>
   </body>
 </html>
