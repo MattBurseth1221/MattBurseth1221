@@ -176,11 +176,13 @@ window.addEventListener("load", () => {
   }
 });
 
-async function searchForSong() {
-  const res = await fetch(SPOTIFY_SEARCH_CALL, {
+async function searchForSong(trackName) {
+  const res = await fetch(SPOTIFY_SEARCH_CALL + "?q=Stevie+Ray+Vaughan", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
+      type: "artist",
     },
-    data: 
-  })
+  });
+
+  console.log(res.json());
 }
