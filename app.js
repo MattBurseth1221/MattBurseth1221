@@ -6,7 +6,7 @@ const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
 const WORDNIK_API_KEY = "vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo";
 
 const BASE_API_CALL = "https://api.spotify.com.";
-const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search";
+const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search?";
 var APIResponse;
 var accessToken = "null";
 localStorage.setItem("accessToken", "null");
@@ -172,17 +172,36 @@ window.addEventListener("load", () => {
   if (localStorage.getItem("accessToken") != "null") {
     success();
   } else {
-    alert("Please sign in to Spotify on the Services page");
+    console.log("Login to Spotify");
   }
 });
 
-async function searchForSong(trackName) {
-  const res = await fetch(SPOTIFY_SEARCH_CALL + "?q=Stevie+Ray+Vaughan", {
+async function printArtistSearch() {
+  var artistName = document.getElementById("number-of-display-songs").value;
+
+  const params = {
+    q: artistName,
+    type: "artist",
+    limit: 8,
+  };
+
+  var url = new URL(SPOTIFY_SEARCH_CALL);
+
+  url.search = new URLSearchParams(params).toString();
+
+  const result = await searchForArtist(url)
+    .then((response) => response.json())
+    .then((artist) => {
+      console.log(artist[0]);
+    });
+
+  console.log(result);
+}
+
+async function searchForArtist(url) {
+  return await fetch(url, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      type: "artist",
     },
   });
-
-  console.log(res.json());
 }
