@@ -9,6 +9,8 @@ const BASE_API_CALL = "https://api.spotify.com.";
 const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search?";
 var APIResponse;
 var accessToken = "null";
+var refreshToken = "null";
+var accessCode = "null";
 localStorage.setItem("accessToken", "null");
 
 const maxDisplaySongs = 15;
@@ -23,15 +25,38 @@ function loginToSpotify() {
   window.open(authUrl, "_self");
 }
 
+function loginToSpotifyAccessCode() {
+  const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(
+    REDIRECT_URI
+  )}&scope=${SCOPES.join("%20")}`;
+  // Open the authentication URL in a new window
+  window.open(authUrl, "_self");
+}
+
+function getAccessCodeFromHash() {
+  const urlParams = new URLSearchParams(window.location.hash.substr(1));
+  const accessCodeOld = urlParams.get("code");
+  console.log(window.location.hash);
+
+  localStorage.setItem("accessCode", accessCodeOld);
+  accessCode = accessCodeOld;
+  console.log("access code received");
+}
+
 function getAccessTokenFromHash() {
   const urlParams = new URLSearchParams(window.location.hash.substr(1));
   const accessTokenOld = urlParams.get("access_token");
+  const refreshTokenOld = urlParams.get("refresh_token");
 
   if (localStorage.getItem("accessToken") == "null") {
     localStorage.setItem("accessToken", accessTokenOld);
     accessToken = accessTokenOld;
     console.log("access token changed: " + localStorage.getItem("accessToken"));
   }
+
+  localStorage.setItem("refreshToken", refreshTokenOld);
+  refreshToken = refreshTokenOld;
+  console.log("refresh token changed: " + refreshTokenOld);
 }
 
 // if (accessToken == "null") {
@@ -167,17 +192,28 @@ function setSuccessSpan() {
 }
 
 window.addEventListener("load", () => {
-  getAccessTokenFromHash();
+  // getAccessTokenFromHash();
+  getAccessCodeFromHash();
 
-  if (localStorage.getItem("accessToken") != "null") {
-    success();
-  } else {
-    console.log("Login to Spotify");
+  if (accessCode != "null") {
+    console.log(accessCode);
   }
+
+  // if (localStorage.getItem("accessToken") != "null") {
+  //   success();
+  // } else {
+  //   console.log("Login to Spotify");
+  // }
 });
 
 async function printArtistSearch() {
   var artistName = document.getElementById("number-of-display-songs").value;
+  var artistList;
+
+  if (artistName === "") {
+    alert("No artist given.");
+    return;
+  }
 
   const params = {
     q: artistName,
@@ -192,10 +228,46 @@ async function printArtistSearch() {
   const result = await searchForArtist(url)
     .then((response) => response.json())
     .then((artist) => {
-      console.log(artist[0]);
+      artistList = artist.artists.items;
     });
 
-  console.log(result);
+  // for (let i = 0; i < artistList.length; i++) {
+  //   console.log(artistList[i].name);
+  // }
+
+  if (document.getElementById("test-list-section") != null) {
+    document.getElementById("test-list-section").remove();
+  }
+
+  var test = document.createElement("div");
+  test.setAttribute("id", "test-list-section");
+
+  document.getElementById("top-songs").appendChild(test);
+  var ol = document.createElement("ol");
+  ol.setAttribute("id", "test-list");
+  test.appendChild(ol);
+
+  for (let i = 0; i < artistList.length; i++) {
+    var li = document.createElement("li");
+
+    var image = document.createElement("img");
+    //console.log(artistList[i].images[0].url);
+
+    if (artistList[i].images.length >= 2) {
+      image.setAttribute("src", artistList[i].images[2].url);
+    } else {
+      image.setAttribute("src", "styles/x-image.png");
+    }
+
+    image.classList.add("artist-photo");
+    li.appendChild(image);
+
+    li.appendChild(document.createTextNode(" - " + artistList[i].name));
+
+    ol.appendChild(li);
+  }
+
+  document.getElementById("top-songs-replace").textContent = "Info Printed";
 }
 
 async function searchForArtist(url) {

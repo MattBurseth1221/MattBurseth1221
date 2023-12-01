@@ -52,7 +52,8 @@ a:not([class]) {
 img,
 picture {
   max-width: 100%;
-  display: block;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -215,6 +216,8 @@ footer {
     border-radius: 20px;
     border: solid 1px darkgray;
     width: 400px;
+    margin: auto;
+    margin-top: 40px;
 }
 
 #number-of-display-songs {
@@ -233,3 +236,12 @@ footer {
     display: block;
     background-color: rgb(194, 126, 126);
 }
+
+.artist-photo {
+    width: 10%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    transform: translate(5px, 14px);
+}
+
