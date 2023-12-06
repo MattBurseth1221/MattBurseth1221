@@ -25,6 +25,15 @@ function loginToSpotify() {
   window.open(authUrl, "_self");
 }
 
+async function callNode() {
+  const result = await fetch("http://localhost:8443", {
+    method: "GET",
+  }).then((res) => res.json());
+  // .then((response) => response.json());
+
+  console.log(result);
+}
+
 function loginToSpotifyAccessCode() {
   const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(
     REDIRECT_URI
