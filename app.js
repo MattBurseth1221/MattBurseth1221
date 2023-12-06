@@ -2,6 +2,7 @@
 const CLIENT_ID = "b7a28fe4fa8e4a13846d6dd5579fd5f9";
 const REDIRECT_URI = "http://localhost:5502/index.html";
 const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
+const nodeServer = "http://localhost:8443";
 
 const WORDNIK_API_KEY = "vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo";
 
@@ -26,7 +27,7 @@ function loginToSpotify() {
 }
 
 async function callNode() {
-  const result = await fetch("http://localhost:8443", {
+  const result = await fetch("http://localhost:8443/request-files", {
     method: "GET",
   }).then((res) => res.json());
   // .then((response) => response.json());
@@ -34,18 +35,20 @@ async function callNode() {
   console.log(result);
 }
 
-function loginToSpotifyAccessCode() {
-  const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(
-    REDIRECT_URI
-  )}&scope=${SCOPES.join("%20")}`;
-  // Open the authentication URL in a new window
-  window.open(authUrl, "_self");
+async function loginToSpotifyAccessCode() {
+  const response = await fetch(nodeServer + "/get-access-code", {
+    method: "GET",
+  }).then((res) => res.json());
+
+  console.log(response);
+  window.open(response.url, "_self");
 }
 
 function getAccessCodeFromHash() {
-  const urlParams = new URLSearchParams(window.location.hash.substr(1));
+  console.log(window.location.search);
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log(urlParams);
   const accessCodeOld = urlParams.get("code");
-  console.log(window.location.hash);
 
   localStorage.setItem("accessCode", accessCodeOld);
   accessCode = accessCodeOld;
