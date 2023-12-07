@@ -11,7 +11,6 @@ const WORDNIK_API_KEY = "vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo";
 
 const BASE_API_CALL = "https://api.spotify.com.";
 const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search?";
-
 var accessCode = "null";
 var state;
 
