@@ -1,6 +1,9 @@
+// var corsAttr = new EnableCorsAttribute("http://localhost:8443", "*", "*");
+// config.EnableCors(corsAttr);
+
 // Spotify API credentials
 const CLIENT_ID = "b7a28fe4fa8e4a13846d6dd5579fd5f9";
-const REDIRECT_URI = "http://localhost:5502/index.html";
+const REDIRECT_URI = "http://localhost:8443/callback";
 const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
 const nodeServer = "http://localhost:8443";
 
@@ -8,13 +11,20 @@ const WORDNIK_API_KEY = "vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo";
 
 const BASE_API_CALL = "https://api.spotify.com.";
 const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search?";
-var APIResponse;
-var accessToken = "null";
-var refreshToken = "null";
+
 var accessCode = "null";
-localStorage.setItem("accessToken", "null");
+var state;
 
 const maxDisplaySongs = 15;
+
+const generateRandomString = (length) => {
+  const possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const values = crypto.getRandomValues(new Uint8Array(length));
+  return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+};
+
+const codeVerifier = generateRandomString(64);
 
 // Function to handle Spotify login
 function loginToSpotify() {
@@ -23,7 +33,7 @@ function loginToSpotify() {
     REDIRECT_URI
   )}&scope=${SCOPES.join("%20")}`;
   // Open the authentication URL in a new window
-  window.open(authUrl, "_self");
+  window.open(authUrl.url, "_self");
 }
 
 async function callNode() {
@@ -36,23 +46,54 @@ async function callNode() {
 }
 
 async function loginToSpotifyAccessCode() {
-  const response = await fetch(nodeServer + "/get-access-code", {
-    method: "GET",
-  }).then((res) => res.json());
+  const hashed = await sha256(codeVerifier);
+  const codeChallenge = base64encode(hashed);
 
-  console.log(response);
-  window.open(response.url, "_self");
+  localStorage.setItem("code_verifier", codeVerifier);
+  passCodeVerifier();
+  console.log("sent code verifier");
+
+  const params = {
+    response_type: "code",
+    client_id: CLIENT_ID,
+    SCOPES,
+    code_challenge_method: "S256",
+    code_challenge: codeChallenge,
+    redirect_uri: REDIRECT_URI,
+  };
+
+  let authUrl = new URL("https://accounts.spotify.com/authorize");
+  authUrl.search = new URLSearchParams(params).toString();
+
+  window.open(authUrl, "_self");
+}
+
+async function passCodeVerifier() {
+  console.log("posting code verifier");
+
+  const rawResponse = await fetch(nodeServer + "/verifier-code", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      test_data: "test",
+      code_verifier: codeVerifier,
+    }),
+  });
+
+  const content = await rawResponse.json();
+
+  console.log(content);
 }
 
 function getAccessCodeFromHash() {
-  console.log(window.location.search);
   const urlParams = new URLSearchParams(window.location.search);
-  console.log(urlParams);
   const accessCodeOld = urlParams.get("code");
 
   localStorage.setItem("accessCode", accessCodeOld);
   accessCode = accessCodeOld;
-  console.log("access code received");
 }
 
 function getAccessTokenFromHash() {
@@ -188,36 +229,6 @@ async function getTrack() {
   }
 }
 
-async function getRandomWord() {
-  const result = await fetchWordnikAPI(
-    `words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=2&maxLength=-1&api_key=${WORDNIK_API_KEY}`
-  );
-
-  document.getElementById("random-word").textContent =
-    result.word.toLowerCase();
-}
-
-function setSuccessSpan() {
-  const successSpan = document.getElementById("successSpan");
-
-  successSpan.textContent = "Success";
-}
-
-window.addEventListener("load", () => {
-  // getAccessTokenFromHash();
-  getAccessCodeFromHash();
-
-  if (accessCode != "null") {
-    console.log(accessCode);
-  }
-
-  // if (localStorage.getItem("accessToken") != "null") {
-  //   success();
-  // } else {
-  //   console.log("Login to Spotify");
-  // }
-});
-
 async function printArtistSearch() {
   var artistName = document.getElementById("number-of-display-songs").value;
   var artistList;
@@ -242,10 +253,6 @@ async function printArtistSearch() {
     .then((artist) => {
       artistList = artist.artists.items;
     });
-
-  // for (let i = 0; i < artistList.length; i++) {
-  //   console.log(artistList[i].name);
-  // }
 
   if (document.getElementById("test-list-section") != null) {
     document.getElementById("test-list-section").remove();
@@ -289,3 +296,16 @@ async function searchForArtist(url) {
     },
   });
 }
+
+const sha256 = async (plain) => {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(plain);
+  return window.crypto.subtle.digest("SHA-256", data);
+};
+
+const base64encode = (input) => {
+  return btoa(String.fromCharCode(...new Uint8Array(input)))
+    .replace(/=/g, "")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_");
+};
