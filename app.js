@@ -1,16 +1,8 @@
-// var corsAttr = new EnableCorsAttribute("http://localhost:8443", "*", "*");
-// config.EnableCors(corsAttr);
-
 // Spotify API credentials
 const CLIENT_ID = "b7a28fe4fa8e4a13846d6dd5579fd5f9";
 const REDIRECT_URI = "http://localhost:8443/callback";
 const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
 const nodeServer = "http://localhost:8443";
-
-const WORDNIK_API_KEY = "vi2bx8wan21fjdix6j7aqiiejjhp5a01i8konq6k9b1us4rvo";
-
-const BASE_API_CALL = "https://api.spotify.com.";
-const SPOTIFY_SEARCH_CALL = "https://api.spotify.com/v1/search?";
 var accessCode = "null";
 var state;
 
@@ -24,16 +16,6 @@ const generateRandomString = (length) => {
 };
 
 const codeVerifier = generateRandomString(64);
-
-// Function to handle Spotify login
-function loginToSpotify() {
-  // Generate the Spotify authentication URL
-  const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(
-    REDIRECT_URI
-  )}&scope=${SCOPES.join("%20")}`;
-  // Open the authentication URL in a new window
-  window.open(authUrl.url, "_self");
-}
 
 async function callNode() {
   const result = await fetch("http://localhost:8443/request-files", {
@@ -87,29 +69,29 @@ async function passCodeVerifier() {
   console.log(content);
 }
 
-function getAccessCodeFromHash() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const accessCodeOld = urlParams.get("code");
+// function getAccessCodeFromHash() {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const accessCodeOld = urlParams.get("code");
 
-  localStorage.setItem("accessCode", accessCodeOld);
-  accessCode = accessCodeOld;
-}
+//   localStorage.setItem("accessCode", accessCodeOld);
+//   accessCode = accessCodeOld;
+// }
 
-function getAccessTokenFromHash() {
-  const urlParams = new URLSearchParams(window.location.hash.substr(1));
-  const accessTokenOld = urlParams.get("access_token");
-  const refreshTokenOld = urlParams.get("refresh_token");
+// function getAccessTokenFromHash() {
+//   const urlParams = new URLSearchParams(window.location.hash.substr(1));
+//   const accessTokenOld = urlParams.get("access_token");
+//   const refreshTokenOld = urlParams.get("refresh_token");
 
-  if (localStorage.getItem("accessToken") == "null") {
-    localStorage.setItem("accessToken", accessTokenOld);
-    accessToken = accessTokenOld;
-    console.log("access token changed: " + localStorage.getItem("accessToken"));
-  }
+//   if (localStorage.getItem("accessToken") == "null") {
+//     localStorage.setItem("accessToken", accessTokenOld);
+//     accessToken = accessTokenOld;
+//     console.log("access token changed: " + localStorage.getItem("accessToken"));
+//   }
 
-  localStorage.setItem("refreshToken", refreshTokenOld);
-  refreshToken = refreshTokenOld;
-  console.log("refresh token changed: " + refreshTokenOld);
-}
+//   localStorage.setItem("refreshToken", refreshTokenOld);
+//   refreshToken = refreshTokenOld;
+//   console.log("refresh token changed: " + refreshTokenOld);
+// }
 
 // if (accessToken == "null") {
 //   getAccessTokenFromHash();
@@ -139,12 +121,6 @@ async function fetchProfile(token) {
   });
 
   return await result.json();
-}
-
-async function fetchWordnikAPI(endpoint) {
-  const result = await fetch(`https://api.wordnik.com/v4/${endpoint}`);
-
-  return result.json();
 }
 
 async function fetchWebApi(endpoint, method, body) {
@@ -229,29 +205,12 @@ async function getTrack() {
 }
 
 async function printArtistSearch() {
-  var artistName = document.getElementById("number-of-display-songs").value;
-  var artistList;
+  var artistName = document.getElementById("artist-search-bar").value;
+  var artistList = await fetch(nodeServer + `/spotify-api/${artistName}`).then(
+    (response) => response.json()
+  );
 
-  if (artistName === "") {
-    alert("No artist given.");
-    return;
-  }
-
-  const params = {
-    q: artistName,
-    type: "artist",
-    limit: 8,
-  };
-
-  var url = new URL(SPOTIFY_SEARCH_CALL);
-
-  url.search = new URLSearchParams(params).toString();
-
-  const result = await searchForArtist(url)
-    .then((response) => response.json())
-    .then((artist) => {
-      artistList = artist.artists.items;
-    });
+  artistList = artistList.items;
 
   if (document.getElementById("test-list-section") != null) {
     document.getElementById("test-list-section").remove();
@@ -271,7 +230,8 @@ async function printArtistSearch() {
     var image = document.createElement("img");
     //console.log(artistList[i].images[0].url);
 
-    if (artistList[i].images.length >= 2) {
+    if (artistList[i].images.length >= 3) {
+      console.log(artistList[i].images[2].url);
       image.setAttribute("src", artistList[i].images[2].url);
     } else {
       image.setAttribute("src", "styles/x-image.png");
