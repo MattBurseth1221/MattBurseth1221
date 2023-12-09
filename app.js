@@ -18,7 +18,7 @@ const generateRandomString = (length) => {
 const codeVerifier = generateRandomString(64);
 
 async function callNode() {
-  const result = await fetch("http://localhost:8443/request-files", {
+  const result = await fetch("http://192.168.0.7:8443/request-files", {
     method: "GET",
   }).then((res) => res.json());
   // .then((response) => response.json());
