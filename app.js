@@ -2,7 +2,10 @@
 const CLIENT_ID = "b7a28fe4fa8e4a13846d6dd5579fd5f9";
 const REDIRECT_URI = "https://192.168.0.7:8443/callback";
 const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
-const nodeServer = "https://192.168.0.7:8443";
+
+const nodeServerHTTPS = "https://192.168.0.7:443";
+const nodeServerHTTP = "https://192.168.0.7:8443";
+const nodeServer = nodeServerHTTPS;
 var accessCode = "null";
 var state;
 
@@ -18,7 +21,7 @@ const generateRandomString = (length) => {
 const codeVerifier = generateRandomString(64);
 
 async function callNode() {
-  const result = await fetch("http://192.168.0.7:8443/request-files", {
+  const result = await fetch(nodeServer + "/request-files", {
     method: "GET",
   }).then((res) => res.json());
   // .then((response) => response.json());
