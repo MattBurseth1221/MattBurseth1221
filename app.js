@@ -1,11 +1,13 @@
 // Spotify API credentials
 const CLIENT_ID = "b7a28fe4fa8e4a13846d6dd5579fd5f9";
-const REDIRECT_URI = "https://192.168.0.7:8443/callback";
 const SCOPES = ["user-read-private", "user-read-email", "user-top-read"];
 
 const nodeServerHTTPS = "https://192.168.0.7:443";
 const nodeServerHTTP = "https://192.168.0.7:8443";
 const nodeServer = nodeServerHTTPS;
+
+const REDIRECT_URI = nodeServer + "/callback";
+
 var accessCode = "null";
 var state;
 
