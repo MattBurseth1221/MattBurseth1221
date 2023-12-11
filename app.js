@@ -215,6 +215,17 @@ async function printArtistSearch() {
     (response) => response.json()
   );
 
+  if ("error" in artistList) {
+    // If there was an error, print it to the page and return
+    document.getElementById("search-error").textContent =
+      "User not signed in to Spotify";
+
+    // Clear search box
+    document.getElementById("artist-search-bar").value = "";
+
+    return;
+  }
+
   artistList = artistList.items;
 
   if (document.getElementById("test-list-section") != null) {
