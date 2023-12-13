@@ -284,3 +284,20 @@ const base64encode = (input) => {
     .replace(/\+/g, "-")
     .replace(/\//g, "_");
 };
+
+async function addDBUser() {
+  const rawResponse = await fetch(nodeServer + "/user", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_id: "frontend ID",
+    }),
+  });
+
+  const content = await rawResponse.json();
+
+  console.log(content);
+}
