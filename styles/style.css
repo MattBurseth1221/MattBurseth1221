@@ -116,6 +116,12 @@ footer {
 
 }
 
+nav {
+    display: flex;
+    margin-right: 40%;
+    width: 75%;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -257,4 +263,13 @@ form {
     max-width: 15%;
     margin: auto;
     justify-content: center;
-  }
+}
+
+.page-login-button-div {
+    display: inline-block;
+    max-width: 25%;
+}
+
+#heading-menu-div {
+    display: flex;
+}
