@@ -118,7 +118,7 @@ footer {
 
 nav {
     display: flex;
-    margin-right: 40%;
+    margin-right: 5%;
     width: 75%;
 }
 
@@ -272,4 +272,8 @@ form {
 
 #heading-menu-div {
     display: flex;
+}
+
+.sign-in-container {
+    margin-bottom: 20px;
 }

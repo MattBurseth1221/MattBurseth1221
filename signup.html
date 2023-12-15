@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <div id="login-container">
+        <form id="login-form" style="display: block">
+          <div class="sign-in-container">
+            <label for="email"><b>Email Address</b></label>
+            <input
+              type="email"
+              placeholder="ex@ample.com"
+              name="email"
+              required
+            />
+
+            <label for="username"><b>Username</b></label>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              name="username"
+              required
+            />
+
+            <label for="password"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              required
+            />
+
+            <button>Sign up</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" />
+              Remember me
+            </label>
+          </div>
+
+          <div class="container" style="background-color: #f1f1f1">
+            <button type="button" class="cancelbtn" id="cancel-button">
+              Cancel
+            </button>
+
+            <script>
+              document.getElementById("cancel-button").onclick = function () {
+                location.href = "index.html";
+              };
+            </script>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
+
+      <p id="signup-error"></p>
+    </main>
+  </body>
+</html>

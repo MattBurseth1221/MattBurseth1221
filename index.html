@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    
     <header>
       <div id="heading-menu-div">
         <nav>
@@ -21,9 +22,19 @@
         </nav>
 
         <div class="page-login-button-div">
-          <button type="button" class="page-login-button">
+          <button type="button" class="account-button" style="margin-left: 60px;" id="page-signup-button">
+            Sign up
+          </button>
+
+          <button type="button" class="account-button" id="page-login-button">
             Login
           </button>
+
+          <script>
+            document.getElementById('page-signup-button').onclick = function() {
+              location.href = 'signup.html';
+            }
+          </script>
         </div>
       </div>
       
