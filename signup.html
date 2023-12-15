@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <script src="app.js" defer></script>
+    <script src="./signup.js" defer></script>
   </head>
 
   <body>
     <main>
       <div id="login-container">
-        <form id="login-form" style="display: block">
+        <form
+          id="login-form"
+          style="display: block"
+          action="http://localhost:8443/signup"
+          method="POST"
+        >
           <div class="sign-in-container">
             <label for="email"><b>Email Address</b></label>
             <input
@@ -37,7 +42,7 @@
               required
             />
 
-            <button>Sign up</button>
+            <button type="submit">Sign up</button>
             <label>
               <input type="checkbox" checked="checked" name="remember" />
               Remember me
