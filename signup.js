@@ -6,17 +6,13 @@ async function signUpUser(formData) {
     JSON.stringify(Object.fromEntries(formData))
   );
 
-  const signupResult = await fetch(nodeServer + `/signup`, {
+  const signupResult = await fetch(nodeServer + "/signup", {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(Object.fromEntries(formData)),
   }).then((response) => response.json());
 
   var signupMessage = document.getElementById("signup-error");
-  localStorage.setItem("signup", signupResult);
+  localStorage.setItem("signup", JSON.stringify(signupResult));
 
   if ("error" in signupResult) {
     signupMessage.textContent = signupResult.error;
@@ -37,6 +33,7 @@ async function signUpUser(formData) {
   }
 }
 
-// document.querySelector("form").addEventListener("submit", (e) => {
-//   signUpUser(new FormData(e.target));
-// });
+document.querySelector("form").addEventListener("submit", (e) => {
+  localStorage.setItem("test", "this worked");
+  signUpUser(new FormData(e.target));
+});

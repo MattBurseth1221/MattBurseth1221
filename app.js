@@ -298,7 +298,7 @@ async function addDBUser() {
     }),
   });
 
-  const content = await rawResponse.json();
+  const content = await rawResponse;
 
   console.log(content);
 }
