@@ -12,7 +12,7 @@ const REDIRECT_URI = nodeServer + "/callback";
 var accessCode = "null";
 var state;
 
-const maxDisplaySongs = 15;
+// module.exports = nodeServer;
 
 const generateRandomString = (length) => {
   const possible =
@@ -74,35 +74,6 @@ async function passCodeVerifier() {
 
   console.log(content);
 }
-
-// function getAccessCodeFromHash() {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const accessCodeOld = urlParams.get("code");
-
-//   localStorage.setItem("accessCode", accessCodeOld);
-//   accessCode = accessCodeOld;
-// }
-
-// function getAccessTokenFromHash() {
-//   const urlParams = new URLSearchParams(window.location.hash.substr(1));
-//   const accessTokenOld = urlParams.get("access_token");
-//   const refreshTokenOld = urlParams.get("refresh_token");
-
-//   if (localStorage.getItem("accessToken") == "null") {
-//     localStorage.setItem("accessToken", accessTokenOld);
-//     accessToken = accessTokenOld;
-//     console.log("access token changed: " + localStorage.getItem("accessToken"));
-//   }
-
-//   localStorage.setItem("refreshToken", refreshTokenOld);
-//   refreshToken = refreshTokenOld;
-//   console.log("refresh token changed: " + refreshTokenOld);
-// }
-
-// if (accessToken == "null") {
-//   getAccessTokenFromHash();
-//   accessToken = localStorage.getItem("accessToken");
-// }
 
 // Display the access token in a paragraph tag
 async function success() {

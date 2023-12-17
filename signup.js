@@ -1,18 +1,18 @@
+// import nodeServer from "./app.js";
+
+const nodeServer = "http://localhost:8443";
+const MAIN_SITE = "http://localhost:5502/index.html";
+
 async function signUpUser(formData) {
-  console.log("formdata: " + formData);
-
-  localStorage.setItem(
-    "formData",
-    JSON.stringify(Object.fromEntries(formData))
-  );
-
   const signupResult = await fetch(nodeServer + "/signup", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(Object.fromEntries(formData)),
   }).then((response) => response.json());
 
   var signupMessage = document.getElementById("signup-error");
-  localStorage.setItem("signup", JSON.stringify(signupResult));
 
   if ("error" in signupResult) {
     signupMessage.textContent = signupResult.error;
@@ -21,7 +21,7 @@ async function signUpUser(formData) {
     //window.location.href = MAIN_SITE;
 
     // Back out of function, let user try another username
-    window.location.href = MAIN_SITE;
+    return;
   } else {
     signupMessage.textContent = signupResult.success;
     signupMessage.style.color = "green";
@@ -33,7 +33,42 @@ async function signUpUser(formData) {
   }
 }
 
-document.querySelector("form").addEventListener("submit", (e) => {
-  localStorage.setItem("test", "this worked");
-  signUpUser(new FormData(e.target));
+async function loginUser(formData) {
+  // const loginResult = await fetch(nodeServer + "/login", {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(Object.fromEntries(formData)),
+  // }).then((response) => response.json());
+
+  const loginResult = await fetch(
+    `${nodeServer}/login?` + new URLSearchParams(Object.fromEntries(formData))
+  );
+
+  var loginMessage = document.getElementById("login-error");
+
+  if ("error" in loginResult) {
+    loginMessage.textContent = loginResult.error;
+    loginMessage.style.color = "red";
+  } else {
+    loginMessage.textContent = loginResult.success;
+    loginMessage.style.color = "green";
+
+    window.setTimeout(function () {
+      window.location.href = MAIN_SITE;
+    }, 3000);
+  }
+}
+
+// document.getElementById("signup-form").addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   signUpUser(new FormData(e.target));
+// });
+
+document.getElementById("login-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  loginUser(new FormData(e.target));
 });

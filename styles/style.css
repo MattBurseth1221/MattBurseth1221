@@ -260,9 +260,14 @@ footer {
 
 form {
     border: 3px solid #f1f1f1;
-    max-width: 15%;
+    max-width: 90%;
     margin: auto;
     justify-content: center;
+}
+
+#login-container {
+    max-width: 13%;
+    margin: auto;
 }
 
 .page-login-button-div {
@@ -276,4 +281,16 @@ form {
 
 .sign-in-container {
     margin-bottom: 20px;
+}
+
+#signup-error {
+    width: 20%;
+    margin: auto;
+    margin-top: 1em;
+    justify-content: center;
+}
+
+label {
+    width: 50%;
+    margin: auto;
 }
