@@ -18,8 +18,6 @@ async function signUpUser(formData) {
     signupMessage.textContent = signupResult.error;
     signupMessage.style.color = "red";
 
-    //window.location.href = MAIN_SITE;
-
     // Back out of function, let user try another username
     return;
   } else {
@@ -34,41 +32,37 @@ async function signUpUser(formData) {
 }
 
 async function loginUser(formData) {
-  // const loginResult = await fetch(nodeServer + "/login", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(Object.fromEntries(formData)),
-  // }).then((response) => response.json());
-
   const loginResult = await fetch(
     `${nodeServer}/login?` + new URLSearchParams(Object.fromEntries(formData))
-  );
+  ).then((response) => response.json());
 
   var loginMessage = document.getElementById("login-error");
+
+  console.log(loginResult);
 
   if ("error" in loginResult) {
     loginMessage.textContent = loginResult.error;
     loginMessage.style.color = "red";
   } else {
-    loginMessage.textContent = loginResult.success;
+    loginMessage.textContent = loginResult.success + " Redirecting...";
     loginMessage.style.color = "green";
 
     window.setTimeout(function () {
       window.location.href = MAIN_SITE;
-    }, 3000);
+    }, 2000);
   }
 }
 
-// document.getElementById("signup-form").addEventListener("submit", (e) => {
-//   e.preventDefault();
+if (document.querySelector("h2").textContent == "Sign up") {
+  document.getElementById("signup-form").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-//   signUpUser(new FormData(e.target));
-// });
+    signUpUser(new FormData(e.target));
+  });
+} else {
+  document.getElementById("login-form").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-document.getElementById("login-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  loginUser(new FormData(e.target));
-});
+    loginUser(new FormData(e.target));
+  });
+}
