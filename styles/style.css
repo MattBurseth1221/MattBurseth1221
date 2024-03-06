@@ -112,6 +112,7 @@ body {
     line-height: 1.5;
     margin: 0;
     padding: 0;
+    
 }
 
 header {
@@ -151,7 +152,7 @@ nav a {
 }
 
 main {
-    padding-block: 5rem;
+    
     order: 1;
 }
 
@@ -227,6 +228,12 @@ footer {
     margin-bottom: 5rem;
 }
 
+.background-image-hallway {
+    width: 100%;
+    background-image: url("./room-hallway.jpg");
+    background-size: 100vw;
+}
+
 #technologies-div {
     background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%);
 }
@@ -246,7 +253,7 @@ footer {
 }
 
 #about-me-div {
-    background: #ccc;
+    background: linear-gradient(0% lightgray, 100% white);
 }
 
 #about-me-card {
@@ -256,6 +263,7 @@ footer {
     box-shadow: 5px 3px 3px black;
     padding: 4rem;
     background: white;
+    max-width: 1000px;
 }
 
 .about-me-tab {
