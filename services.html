@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/services.css" />
     <script src="app.js" defer></script>
   </head>
 
@@ -26,6 +27,50 @@
       <button id="login-button" onclick="loginToSpotifyAccessCode()">
         Log in with Spotify
       </button>
+
+      <div class="spotify-stuff">
+        <div id="tokenContainer">
+          <!-- <span id="successSpan"
+            ><p id="hasToken">This should change if we have a token.</p></span
+          > -->
+          <p>Search for a music artist!</p>
+          <input
+            type="text"
+            placeholder=" &#128270"
+            title="Number of Songs"
+            id="artist-search-bar"
+            label="How many songs?"
+          />
+        </div>
+
+        <div id="profile-info">
+          <p id="profile-name">
+            Profile Name:
+            <span id="profile-name-span" class="profile-info"
+              >No info yet...</span
+            >
+          </p>
+          <p id="profile-country">
+            Country:
+            <span id="profile-country-span" class="profile-info"
+              >No info yet...</span
+            >
+          </p>
+        </div>
+        <div id="top-songs">
+          <button
+            type="button"
+            id="show-top-songs"
+            class="display-button"
+            onclick="printArtistSearch()"
+          >
+            Search for Artist
+          </button>
+          <p id="search-error">
+            <!-- Top Songs: <span id="top-songs-replace">No info yet...</span> -->
+            
+          </p>
+      </div>
     </main>
   </body>
 </html>

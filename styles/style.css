@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Raleway";
+    src: url('./Raleway/static/Raleway-Medium.ttf') format('truetype');
+}
+
+* {
+    font-family: "Raleway", Arial;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -72,11 +81,6 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-@font-face {
-    font-family: 'Raleway';
-    src: url('\styles\Raleway\static\Raleway-Black.ttf') format('truetype');
-}
-
 .center {
     /* margin: auto; */
     text-align: center;
@@ -84,14 +88,25 @@ textarea:not([rows]) {
     width: 50%;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #main-body-div {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
 }
 
 body {
-    justify-content: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: inherit;
     font-size: 16px;
     line-height: 1.5;
@@ -100,20 +115,15 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     padding: 20px;
+    order: -1;
 }
 
 p {
     margin: auto;
-    width: 50%;
-}
-
-footer {
-    margin: auto;
     width: 100%;
-
 }
 
 nav ul {
@@ -141,12 +151,19 @@ nav a {
 }
 
 main {
-    padding: 40px;
+    padding-block: 5rem;
+    order: 1;
 }
 
 section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: auto;
-    width: 50%;
+    width: 100%;
+    padding-bottom: 5rem;
 }
 
 h1,
@@ -169,73 +186,68 @@ h2 {
     background-color: #666;
 }
 
-.display-button {
-    display: flex;
-    background-color: #e4e4e4;
-    border: solid green 1px;
-    cursor: pointer;
-    overflow: hidden;
-    margin: auto;
-    width: 100px;
-}
-
-.display-button:hover {
-    border: 1 px solid black;
-    background-color: lightgray;
-    border-radius: 5px;
-}
-
-#profile-name {
-    margin: auto;
-    width: 50%;
-}
-
 footer {
-    position: absolute;
-    padding: 40px;
+    background: #222;
+    margin-top: auto;
+    padding: 2rem;
+    width: 100%;
+    order: 2;
+    color: white;
 }
 
 #menu-buttons:hover {
     background-color: red;
 }
 
-#about-me-div {
-    border: 1px solid black;
-    width: 500px;
+.full-width {
+    width: 100%;
 }
 
-#about-me-images {
-    position: absolute;
-    right: 30px;
-    top: 200;
+.reg-div {
+    height: 50vh;
 }
 
-#search-error {
-    padding-top: 5px;
-    color: red;
-    text-align: center;
-
-}
-
-#test-list-section {
-    text-align: justify;
-    background-color: lightgray;
-    border-radius: 20px;
-    border: solid 1px darkgray;
-    width: 400px;
-    margin: auto;
-    margin-top: 40px;
-}
-
-#artist-search-bar {
-    display: block;
-    margin: 0 auto;
+.half-div {
     width: 50%;
-} 
+}
 
-/* #number-of-display-songs::after {
+.three-quarters {
+    width: 75%;
+}
 
-} */
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.info-div {
+    margin-bottom: 5rem;
+}
+
+#technologies-div {
+    background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%);
+}
+
+.technologies-tab {
+    display: flex;
+    flex-direction: column;
+    max-width: 33%;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: auto;
+}
+
+#test-div {
+    background: #222;
+}
+
+#about-me-div {
+    
+}
 
 #hasToken::before {
     width: 45px;
@@ -243,12 +255,3 @@ footer {
     display: block;
     background-color: rgb(194, 126, 126);
 }
-
-.artist-photo {
-    width: 10%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 50%;
-    transform: translate(5px, 14px);
-}
-

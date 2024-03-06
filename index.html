@@ -12,10 +12,10 @@
     <header>
       <nav>
         <ul class="menu-buttons">
-          <li><a href="#">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">home</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="services.html">services</a></li>
+          <li><a href="contact.html">contact</a></li>
         </ul>
       </nav>
     </header>
@@ -23,63 +23,43 @@
     <main>
       <div id="main-body-div">
         <section>
-          <h1 class="center" style="width: 80%">Welcome to My Website!</h1>
-          <p style="margin-bottom: 45px">Testing work with API's.</p>
+          <h1 class="center" style="width: 80%">welcome to my portfolio.</h1>
         </section>
 
-        <div id="tokenContainer">
-          <!-- <span id="successSpan"
-            ><p id="hasToken">This should change if we have a token.</p></span
-          > -->
-          <p>Search for a music artist!</p>
-          <input
-            type="text"
-            placeholder=" &#128270"
-            title="Number of Songs"
-            id="artist-search-bar"
-            label="How many songs?"
-          />
+        <div class = "info-div full-width reg-div flex-center" id="about-me-div">
+          <div class="three-quarters flex-center">
+
+          </div>
         </div>
 
-        <div id="profile-info">
-          <p id="profile-name">
-            Profile Name:
-            <span id="profile-name-span" class="profile-info"
-              >No info yet...</span
-            >
-          </p>
-          <p id="profile-country">
-            Country:
-            <span id="profile-country-span" class="profile-info"
-              >No info yet...</span
-            >
-          </p>
+        <div class = "info-div full-width reg-div flex-center" id="test-div">
+          <div class="three-quarters flex-center">
+
+          </div>
         </div>
-        <div id="top-songs">
-          <button
-            type="button"
-            id="show-top-songs"
-            class="display-button"
-            onclick="printArtistSearch()"
-          >
-            Search for Artist
-          </button>
-          <p id="search-error">
-            <!-- Top Songs: <span id="top-songs-replace">No info yet...</span> -->
+
+        <div class="info-div full-width reg-div flex-center" id="technologies-div">
+          <div class="three-quarters flex-center space-evenly">
+            <div class="technologies-tab">
+              <img src="./styles/java-logo.png" alt="Java logo" style="width: 75px; height: 75px;"/>
+              <p>Backend Java experience via Springboot and Maven builds</p>
+            </div>
+            <div class="technologies-tab">
+              <img src="./styles/node-js-logo.png" alt="React logo" style="width: 75px; height: 75px;"/>
+              <p>Further backend experience via NodeJS and popular dependencies such as Express</p>
+            </div>
+            <div class="technologies-tab">
+              <img src="./styles/react-logo.png" alt="React logo" style="width: 75px; height: 75px;"/>
+              <p>Personal website created with ReactJS using dynamic elements</p>
+            </div>
             
-          </p>
-
-          <!-- <img src="https://i.scdn.co/image/ab6761610000e5eb6c6380e782ed89db8754cf2a" class="artist-photo"> -->
-
-          <!-- <audio controls>
-                <source src="https://p.scdn.co/mp3-preview/c85bc2fe71a4e2e002376c04b771cbb6be6438e6?cid=b7a28fe4fa8e4a13846d6dd5579fd5f9" />
-            </audio> -->
+          </div>
         </div>
       </div>
     </main>
 
     <footer>
-      <p style="text-align: center">&copy; 2023 My Modern Website</p>
+      <p style="text-align: center">&copy; 2024 Matt's Website</p>
     </footer>
   </body>
 </html>
