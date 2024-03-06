@@ -246,7 +246,20 @@ footer {
 }
 
 #about-me-div {
-    
+    background: #ccc;
+}
+
+#about-me-card {
+    min-height: 80%;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px black;
+    padding: 4rem;
+    background: white;
+}
+
+.about-me-tab {
+    text-align: center;
 }
 
 #hasToken::before {
