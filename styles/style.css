@@ -120,6 +120,8 @@ header {
     color: #fff;
     padding: 20px;
     order: -1;
+    position: sticky;
+    top: 0;
 }
 
 p {
@@ -230,8 +232,11 @@ footer {
 
 .background-image-hallway {
     width: 100%;
-    background-image: url("./room-hallway.jpg");
+    background-image: url("./room-hallway-text.jpg");
     background-size: 100vw;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* box-shadow: (black 10px 10px); */
 }
 
 #technologies-div {
@@ -248,19 +253,17 @@ footer {
     margin-bottom: auto;
 }
 
-#test-div {
-    background: #222;
-}
 
 #about-me-div {
-    background: linear-gradient(0% lightgray, 100% white);
+    background: #222;
+    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%);
 }
 
 #about-me-card {
     min-height: 80%;
     border: 0px solid black;
     border-radius: 10px;
-    box-shadow: 5px 3px 3px black;
+    
     padding: 4rem;
     background: white;
     max-width: 1000px;
@@ -275,4 +278,12 @@ footer {
     height: 45px;
     display: block;
     background-color: rgb(194, 126, 126);
+}
+
+#welcome-h2 {
+    color: white;
+    
+    position: absolute;
+    top: 54.5vh;
+    left: 47vw;
 }
