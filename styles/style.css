@@ -129,32 +129,31 @@ p {
     width: 100%;
 }
 
-nav ul {
+.left-nav-ul ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-nav li {
+.left-nav-ul li {
     display: inline-block;
-    margin-right: 20px;
-    border-radius: 10px;
+    margin-right: 2rem;
+    border-radius: 1rem;
     transition: padding 0.75s, background-color 1.5s, border-radius;
 }
 
-nav li:hover {
+.left-nav-ul li:hover {
     padding: 10px;
     background-color: #666;
     border-radius: 10px;
 }
 
-nav a {
+.left-nav-ul a {
     color: #fff;
     text-decoration: none;
 }
 
 main {
-    
     order: 1;
 }
 
@@ -232,8 +231,8 @@ footer {
 
 .background-image-hallway {
     width: 100%;
-    background-image: url("./room-hallway-text.jpg");
-    background-size: 100vw;
+    background-image: url("./images/room-hallway-text.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
     /* box-shadow: (black 10px 10px); */
@@ -286,4 +285,29 @@ footer {
     position: absolute;
     top: 54.5vh;
     left: 47vw;
+}
+
+#about-me-intro {
+    max-width: 50%;
+    padding: 1rem 2rem 1rem 2rem;
+    background: white;
+    flex-direction: column;
+    text-align: center;
+}
+
+#first-about-me-div {
+    background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%);
+}
+
+/* Contact Page Specific */
+
+#contact-information {
+    flex-direction: column;
+    text-align: center;
+}
+
+#main-content-container {
+    justify-content: center;
+    align-items: center;
+    
 }

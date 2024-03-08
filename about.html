@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <script src="app.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services</title>
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <script src="app.js" defer></script>
-</head>
+  <body>
+    <header>
+      <nav class="left-nav-ul">
+        <ul>
+          <li><a href="index.html">home</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="services.html">playground</a></li>
+          <li><a href="contact.html">contact</a></li>
+        </ul>
 
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="#">about</a></li>
-        <li><a href="services.html">playground</a></li>
-        <li><a href="contact.html">contact</a></li>
-      </ul>
-    </nav>
-  </header>
+        <ul class="right-nav-ul"></ul>
+      </nav>
+    </header>
 
-  <main>
-    <div id="about-me-div">
-      <h3>Who I Am</h3>
+    <main>
+      <div id="first-about-me-div" class="reg-div full-width flex-center">
+        <div id="about-me-intro" class="three-quarters flex-center">
+          <h3 style="margin-bottom: 1rem;">Who I Am</h3>
+          <p id="about-me-paragraph">
+            Hello! My name is Matt Burseth, and this is my first attempt at
+            creating a personal website completely from scratch. I am
+            <span id="age"></span> years old and have just recently graduated
+            from the University of Wisconsin-Whitewater. With this website, I
+            aim to display my programming portfolio, featuring projects
+            belonging both to my professsional and personal life.
+          </p>
+        </div>
+      </div>
 
+      <div id="about-me-images"></div>
+    </main>
+  </body>
 
-
-
-      <p id="about-me-paragraph">Hello! My name is Matt Burseth, and this is my first attempt at creating a personal
-        website completely from scratch. I am <span id="age"></span> years old
-        and have just recently graduated from the University of Wisconsin-Whitewater.</p>
-
-      <p>With this website, I aim to display my programming portfolio, featuring projects belonging both to my
-        professsional and personal life.</p>
-    </div>
-
-    <div id="about-me-images">
-    </div>
-  </main>
-</body>
-
-<script>
-  var age = Math.abs(new Date() - new Date('2000/12/21'));
-  var span = document.getElementById('age');
-  //console.log(Math.floor((age / 31536000000)).toString());
-  span.appendChild(document.createTextNode(Math.floor((age / 31536000000)).toString()));
-</script>
-
+  <script>
+    var age = Math.abs(new Date() - new Date("2000/12/21"));
+    var span = document.getElementById("age");
+    //console.log(Math.floor((age / 31536000000)).toString());
+    span.appendChild(
+      document.createTextNode(Math.floor(age / 31536000000).toString())
+    );
+  </script>
 </html>
