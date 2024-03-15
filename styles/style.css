@@ -101,6 +101,7 @@ textarea:not([rows]) {
     align-items: center;
     margin: 0 auto;
     width: 100%;
+    background-color: #EFF6E0;
 }
 
 body {
@@ -116,7 +117,7 @@ body {
 }
 
 header {
-    background-color: #222;
+    background-color: #01161E;
     color: #fff;
     padding: 20px;
     order: -1;
@@ -139,13 +140,15 @@ p {
     display: inline-block;
     margin-right: 2rem;
     border-radius: 1rem;
+    padding: 0.75rem;
     transition: padding 0.75s, background-color 1.5s, border-radius;
+    /* background-color: #666; */
 }
 
 .left-nav-ul li:hover {
-    padding: 10px;
-    background-color: #666;
-    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: #EFF6E0;
+    border-radius: 1rem
 }
 
 .left-nav-ul a {
@@ -239,7 +242,7 @@ footer {
 }
 
 #technologies-div {
-    background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%);
+    /* background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%); */
 }
 
 .technologies-tab {
@@ -254,8 +257,8 @@ footer {
 
 
 #about-me-div {
-    background: #222;
-    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%);
+    /* background: #222;
+    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%); */
 }
 
 #about-me-card {
@@ -264,7 +267,7 @@ footer {
     border-radius: 10px;
     
     padding: 4rem;
-    background: white;
+    background: #AEC3B0;
     max-width: 1000px;
 }
 
