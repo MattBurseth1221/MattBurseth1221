@@ -1,9 +1,23 @@
+main {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+
 #token-container {
     width: 100%;
 }
 
+#login-button {
+    width: 50%;
+}
+
 .display-button {
-    display: flex;
     background-color: #e4e4e4;
     border: solid green 1px;
     cursor: pointer;
@@ -41,7 +55,5 @@
 }
 
 #artist-search-bar {
-    display: block;
-    margin: 0 auto;
     width: 100%;
 } 
