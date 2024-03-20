@@ -209,7 +209,11 @@ footer {
     height: 50vh;
 }
 
-.half-div {
+.full-height {
+    min-height: 100vh;
+}
+
+.half-width {
     width: 50%;
 }
 
@@ -254,8 +258,8 @@ footer {
 
 
 #about-me-div {
-    background: #222;
-    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%);
+    /* background: #222;
+    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%); */
 }
 
 #about-me-card {
@@ -310,4 +314,52 @@ footer {
     justify-content: center;
     align-items: center;
     
+}
+
+/* Portfolio div design */
+
+/* @keyframes portfolio-card {
+    from {
+        grid-area: 1 / 2 / 4 / 5;
+    }
+
+    to {
+        grid-area: 1 / 2 / 4 / 6;
+        z-index: 999;
+    }
+} */
+
+#projects-div {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.project-display-div {
+    background: red;
+    border: 1px solid black;
+}
+
+.project-display-div-1 {
+    grid-area: 1 / 2 / 4 / 5;
+    transition: grid-area 2s, z-index 2s;
+    transition-timing-function: ease;
+}
+
+.project-display-div-1:hover {
+    grid-area: 1 / 2 / 4 / 6;
+    z-index: 15
+}
+
+.project-display-div-2 {
+    grid-area: 3 / 3 / 6 / 6;
+    z-index: 10;
+    background: green;
+}
+
+.project-display-div-3 {
+    grid-area: 5 / 2 / 8 / 5;
+    background: blue;
 }
