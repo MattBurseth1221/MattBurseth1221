@@ -101,7 +101,7 @@ textarea:not([rows]) {
     align-items: center;
     margin: 0 auto;
     width: 100%;
-    background-color: #EFF6E0;
+    background-color: #222;
 }
 
 body {
@@ -117,8 +117,8 @@ body {
 }
 
 header {
-    background-color: #01161E;
-    color: #fff;
+    /* background-color: #01161E; */
+    background-color: #222;
     padding: 20px;
     order: -1;
     position: sticky;
@@ -147,7 +147,7 @@ p {
 
 .left-nav-ul li:hover {
     padding: 0.5rem;
-    background-color: #EFF6E0;
+    background-color: #9e9e9e;
     border-radius: 1rem
 }
 
@@ -188,7 +188,7 @@ h2 {
 }
 
 .button:hover {
-    background-color: #666;
+    background-color: #333;
 }
 
 footer {
@@ -243,6 +243,7 @@ footer {
 
 #technologies-div {
     /* background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%); */
+    color: white;
 }
 
 .technologies-tab {
@@ -265,10 +266,10 @@ footer {
     min-height: 80%;
     border: 0px solid black;
     border-radius: 10px;
-    
     padding: 4rem;
-    background: #AEC3B0;
+    background: #222;
     max-width: 1000px;
+    color: white;
 }
 
 .about-me-tab {
