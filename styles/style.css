@@ -102,6 +102,7 @@ textarea:not([rows]) {
     margin: 0 auto;
     width: 100%;
     background-color: #222;
+    z-index:-1;
 }
 
 body {
@@ -113,7 +114,8 @@ body {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    
+    z-index:-1;
+    background-color: #222;
 }
 
 header {
@@ -123,6 +125,7 @@ header {
     order: -1;
     position: sticky;
     top: 0;
+    margin-bottom: 5rem;
 }
 
 p {
@@ -256,12 +259,6 @@ footer {
     margin-bottom: auto;
 }
 
-
-#about-me-div {
-    /* background: #222;
-    background: linear-gradient(to right, #222 0%, #555 50%, #222 100%); */
-}
-
 #about-me-card {
     min-height: 80%;
     border: 0px solid black;
@@ -314,4 +311,31 @@ footer {
     justify-content: center;
     align-items: center;
     
+}
+
+/* Colored background divs */
+
+.blue-background-test-div {
+    position: absolute;
+    background: rgb(10, 10, 255);
+    opacity: 5%;
+    width: 35%;
+    min-height: 100vh;
+    left: -15%;
+    top: -16vh;
+    z-index: 0;
+    border-radius: 100%;
+    box-shadow: 10vb 0 100px -4px rgba(10, 10, 255, 0.70);
+}
+
+.red-background-test-div {
+    position: absolute;
+    background: red;
+    opacity: 5%;
+    width: 60%;
+    min-height: 35vh;
+    z-index: 0;
+    right: -15%;
+    border-radius: 100%;
+    box-shadow: -10vw 0 100px rgba(255, 0, 0, 0.8);
 }
