@@ -25,6 +25,7 @@ html {
 body, h1, h2, h3, h4, p,
 figure, blockquote, dl, dd {
   margin-block-end: 0;
+  margin-block-start: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -165,7 +166,6 @@ section {
     text-align: center;
     margin: auto;
     width: 100%;
-    padding-bottom: 5rem;
 }
 
 
@@ -293,22 +293,16 @@ footer {
     flex-direction: column;
     text-align: center;
 }
-
+/* 
 #first-about-me-div {
     background: linear-gradient(to right, lightgray 0%, white 50%, lightgray 100%);
-}
+} */
 
-/* Contact Page Specific */
-
-#contact-information {
-    flex-direction: column;
-    text-align: center;
-}
-
-#main-content-container {
-    justify-content: center;
-    align-items: center;
-    
+#other-sites-section {
+    margin-top: 5;
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
 }
 
 .project-card {
@@ -327,4 +321,26 @@ footer {
 
 .flex {
     display: flex;
+}
+
+.project-card > h1 {
+    margin-block: 1rem;
+}
+
+/* Contact Page Specific */
+
+#main-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+#contact-information {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    text-align: center;
 }
